@@ -2,7 +2,7 @@
 /*                  Atmel Microcontroller Software Support                      */
 /*                       SAM Software Package License                           */
 /* ---------------------------------------------------------------------------- */
-/* Copyright (c) 2015, Atmel Corporation                                        */
+/* Copyright (c) %copyright_year%, Atmel Corporation                                        */
 /*                                                                              */
 /* All rights reserved.                                                         */
 /*                                                                              */
@@ -111,7 +111,6 @@ typedef struct {
 #define EMAC_NCFGR_BIG (0x1u << 8) /**< \brief (EMAC_NCFGR) Receive 1536 bytes frames */
 #define EMAC_NCFGR_CLK_Pos 10
 #define EMAC_NCFGR_CLK_Msk (0x3u << EMAC_NCFGR_CLK_Pos) /**< \brief (EMAC_NCFGR) MDC clock divider */
-#define EMAC_NCFGR_CLK(value) ((EMAC_NCFGR_CLK_Msk & ((value) << EMAC_NCFGR_CLK_Pos)))
 #define   EMAC_NCFGR_CLK_MCK_8 (0x0u << 10) /**< \brief (EMAC_NCFGR) MCK divided by 8 (MCK up to 20 MHz). */
 #define   EMAC_NCFGR_CLK_MCK_16 (0x1u << 10) /**< \brief (EMAC_NCFGR) MCK divided by 16 (MCK up to 40 MHz). */
 #define   EMAC_NCFGR_CLK_MCK_32 (0x2u << 10) /**< \brief (EMAC_NCFGR) MCK divided by 32 (MCK up to 80 MHz). */
@@ -120,7 +119,6 @@ typedef struct {
 #define EMAC_NCFGR_PAE (0x1u << 13) /**< \brief (EMAC_NCFGR) Pause Enable */
 #define EMAC_NCFGR_RBOF_Pos 14
 #define EMAC_NCFGR_RBOF_Msk (0x3u << EMAC_NCFGR_RBOF_Pos) /**< \brief (EMAC_NCFGR) Receive Buffer Offset */
-#define EMAC_NCFGR_RBOF(value) ((EMAC_NCFGR_RBOF_Msk & ((value) << EMAC_NCFGR_RBOF_Pos)))
 #define   EMAC_NCFGR_RBOF_OFFSET_0 (0x0u << 14) /**< \brief (EMAC_NCFGR) No offset from start of receive buffer. */
 #define   EMAC_NCFGR_RBOF_OFFSET_1 (0x1u << 14) /**< \brief (EMAC_NCFGR) One-byte offset from start of receive buffer. */
 #define   EMAC_NCFGR_RBOF_OFFSET_2 (0x2u << 14) /**< \brief (EMAC_NCFGR) Two-byte offset from start of receive buffer. */

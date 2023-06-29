@@ -2,7 +2,7 @@
 /*                  Atmel Microcontroller Software Support                      */
 /*                       SAM Software Package License                           */
 /* ---------------------------------------------------------------------------- */
-/* Copyright (c) 2015, Atmel Corporation                                        */
+/* Copyright (c) %copyright_year%, Atmel Corporation                                        */
 /*                                                                              */
 /* All rights reserved.                                                         */
 /*                                                                              */
@@ -85,7 +85,6 @@ typedef struct {
 #define DACC_MR_REFRESH(value) ((DACC_MR_REFRESH_Msk & ((value) << DACC_MR_REFRESH_Pos)))
 #define DACC_MR_USER_SEL_Pos 16
 #define DACC_MR_USER_SEL_Msk (0x3u << DACC_MR_USER_SEL_Pos) /**< \brief (DACC_MR) User Channel Selection */
-#define DACC_MR_USER_SEL(value) ((DACC_MR_USER_SEL_Msk & ((value) << DACC_MR_USER_SEL_Pos)))
 #define   DACC_MR_USER_SEL_CHANNEL0 (0x0u << 16) /**< \brief (DACC_MR) Channel 0 */
 #define   DACC_MR_USER_SEL_CHANNEL1 (0x1u << 16) /**< \brief (DACC_MR) Channel 1 */
 #define DACC_MR_TAG (0x1u << 20) /**< \brief (DACC_MR) Tag Selection Mode */
@@ -96,7 +95,6 @@ typedef struct {
 #define   DACC_MR_MAXS_MAXIMUM (0x1u << 21) /**< \brief (DACC_MR) Max Speed Mode enabled */
 #define DACC_MR_STARTUP_Pos 24
 #define DACC_MR_STARTUP_Msk (0x3fu << DACC_MR_STARTUP_Pos) /**< \brief (DACC_MR) Startup Time Selection */
-#define DACC_MR_STARTUP(value) ((DACC_MR_STARTUP_Msk & ((value) << DACC_MR_STARTUP_Pos)))
 #define   DACC_MR_STARTUP_0 (0x0u << 24) /**< \brief (DACC_MR) 0 periods of DACClock */
 #define   DACC_MR_STARTUP_8 (0x1u << 24) /**< \brief (DACC_MR) 8 periods of DACClock */
 #define   DACC_MR_STARTUP_16 (0x2u << 24) /**< \brief (DACC_MR) 16 periods of DACClock */

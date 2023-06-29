@@ -2,7 +2,7 @@
 /*                  Atmel Microcontroller Software Support                      */
 /*                       SAM Software Package License                           */
 /* ---------------------------------------------------------------------------- */
-/* Copyright (c) 2015, Atmel Corporation                                        */
+/* Copyright (c) %copyright_year%, Atmel Corporation                                        */
 /*                                                                              */
 /* All rights reserved.                                                         */
 /*                                                                              */
@@ -56,7 +56,6 @@ typedef struct {
 /* -------- SDRAMC_MR : (SDRAMC Offset: 0x00) SDRAMC Mode Register -------- */
 #define SDRAMC_MR_MODE_Pos 0
 #define SDRAMC_MR_MODE_Msk (0x7u << SDRAMC_MR_MODE_Pos) /**< \brief (SDRAMC_MR) SDRAMC Command Mode */
-#define SDRAMC_MR_MODE(value) ((SDRAMC_MR_MODE_Msk & ((value) << SDRAMC_MR_MODE_Pos)))
 #define   SDRAMC_MR_MODE_NORMAL (0x0u << 0) /**< \brief (SDRAMC_MR) Normal mode. Any access to the SDRAM is decoded normally. To activate this mode, command must be followed by a write to the SDRAM. */
 #define   SDRAMC_MR_MODE_NOP (0x1u << 0) /**< \brief (SDRAMC_MR) The SDRAM Controller issues a NOP command when the SDRAM device is accessed regardless of the cycle. To activate this mode, command must be followed by a write to the SDRAM. */
 #define   SDRAMC_MR_MODE_ALLBANKS_PRECHARGE (0x2u << 0) /**< \brief (SDRAMC_MR) The SDRAM Controller issues an "All Banks Precharge" command when the SDRAM device is accessed regardless of the cycle. To activate this mode, command must be followed by a write to the SDRAM. */
@@ -71,14 +70,12 @@ typedef struct {
 /* -------- SDRAMC_CR : (SDRAMC Offset: 0x08) SDRAMC Configuration Register -------- */
 #define SDRAMC_CR_NC_Pos 0
 #define SDRAMC_CR_NC_Msk (0x3u << SDRAMC_CR_NC_Pos) /**< \brief (SDRAMC_CR) Number of Column Bits */
-#define SDRAMC_CR_NC(value) ((SDRAMC_CR_NC_Msk & ((value) << SDRAMC_CR_NC_Pos)))
 #define   SDRAMC_CR_NC_COL8 (0x0u << 0) /**< \brief (SDRAMC_CR) 8 column bits */
 #define   SDRAMC_CR_NC_COL9 (0x1u << 0) /**< \brief (SDRAMC_CR) 9 column bits */
 #define   SDRAMC_CR_NC_COL10 (0x2u << 0) /**< \brief (SDRAMC_CR) 10 column bits */
 #define   SDRAMC_CR_NC_COL11 (0x3u << 0) /**< \brief (SDRAMC_CR) 11 column bits */
 #define SDRAMC_CR_NR_Pos 2
 #define SDRAMC_CR_NR_Msk (0x3u << SDRAMC_CR_NR_Pos) /**< \brief (SDRAMC_CR) Number of Row Bits */
-#define SDRAMC_CR_NR(value) ((SDRAMC_CR_NR_Msk & ((value) << SDRAMC_CR_NR_Pos)))
 #define   SDRAMC_CR_NR_ROW11 (0x0u << 2) /**< \brief (SDRAMC_CR) 11 row bits */
 #define   SDRAMC_CR_NR_ROW12 (0x1u << 2) /**< \brief (SDRAMC_CR) 12 row bits */
 #define   SDRAMC_CR_NR_ROW13 (0x2u << 2) /**< \brief (SDRAMC_CR) 13 row bits */
@@ -87,7 +84,6 @@ typedef struct {
 #define   SDRAMC_CR_NB_BANK4 (0x1u << 4) /**< \brief (SDRAMC_CR) 4 banks */
 #define SDRAMC_CR_CAS_Pos 5
 #define SDRAMC_CR_CAS_Msk (0x3u << SDRAMC_CR_CAS_Pos) /**< \brief (SDRAMC_CR) CAS Latency */
-#define SDRAMC_CR_CAS(value) ((SDRAMC_CR_CAS_Msk & ((value) << SDRAMC_CR_CAS_Pos)))
 #define   SDRAMC_CR_CAS_LATENCY1 (0x1u << 5) /**< \brief (SDRAMC_CR) 1 cycle CAS latency */
 #define   SDRAMC_CR_CAS_LATENCY2 (0x2u << 5) /**< \brief (SDRAMC_CR) 2 cycle CAS latency */
 #define   SDRAMC_CR_CAS_LATENCY3 (0x3u << 5) /**< \brief (SDRAMC_CR) 3 cycle CAS latency */
@@ -113,7 +109,6 @@ typedef struct {
 /* -------- SDRAMC_LPR : (SDRAMC Offset: 0x10) SDRAMC Low Power Register -------- */
 #define SDRAMC_LPR_LPCB_Pos 0
 #define SDRAMC_LPR_LPCB_Msk (0x3u << SDRAMC_LPR_LPCB_Pos) /**< \brief (SDRAMC_LPR) Low-power Configuration Bits */
-#define SDRAMC_LPR_LPCB(value) ((SDRAMC_LPR_LPCB_Msk & ((value) << SDRAMC_LPR_LPCB_Pos)))
 #define   SDRAMC_LPR_LPCB_DISABLED (0x0u << 0) /**< \brief (SDRAMC_LPR) Low Power Feature is inhibited: no Power-down, Self-refresh or Deep Power-down command is issued to the SDRAM device. */
 #define   SDRAMC_LPR_LPCB_SELF_REFRESH (0x1u << 0) /**< \brief (SDRAMC_LPR) The SDRAM Controller issues a Self-refresh command to the SDRAM device, the SDCK clock is deactivated and the SDCKE signal is set low. The SDRAM device leaves the Self Refresh Mode when accessed and enters it after the access. */
 #define   SDRAMC_LPR_LPCB_POWER_DOWN (0x2u << 0) /**< \brief (SDRAMC_LPR) The SDRAM Controller issues a Power-down Command to the SDRAM device after each access, the SDCKE signal is set to low. The SDRAM device leaves the Power-down Mode when accessed and enters it after the access. */
@@ -129,7 +124,6 @@ typedef struct {
 #define SDRAMC_LPR_DS(value) ((SDRAMC_LPR_DS_Msk & ((value) << SDRAMC_LPR_DS_Pos)))
 #define SDRAMC_LPR_TIMEOUT_Pos 12
 #define SDRAMC_LPR_TIMEOUT_Msk (0x3u << SDRAMC_LPR_TIMEOUT_Pos) /**< \brief (SDRAMC_LPR) Time to define when low-power mode is enable */
-#define SDRAMC_LPR_TIMEOUT(value) ((SDRAMC_LPR_TIMEOUT_Msk & ((value) << SDRAMC_LPR_TIMEOUT_Pos)))
 #define   SDRAMC_LPR_TIMEOUT_LP_LAST_XFER (0x0u << 12) /**< \brief (SDRAMC_LPR) The SDRAM controller activates the SDRAM low-power mode immediately after the end of the last transfer. */
 #define   SDRAMC_LPR_TIMEOUT_LP_LAST_XFER_64 (0x1u << 12) /**< \brief (SDRAMC_LPR) The SDRAM controller activates the SDRAM low-power mode 64 clock cycles after the end of the last transfer. */
 #define   SDRAMC_LPR_TIMEOUT_LP_LAST_XFER_128 (0x2u << 12) /**< \brief (SDRAMC_LPR) The SDRAM controller activates the SDRAM low-power mode 128 clock cycles after the end of the last transfer. */
@@ -144,20 +138,17 @@ typedef struct {
 /* -------- SDRAMC_MDR : (SDRAMC Offset: 0x24) SDRAMC Memory Device Register -------- */
 #define SDRAMC_MDR_MD_Pos 0
 #define SDRAMC_MDR_MD_Msk (0x3u << SDRAMC_MDR_MD_Pos) /**< \brief (SDRAMC_MDR) Memory Device Type */
-#define SDRAMC_MDR_MD(value) ((SDRAMC_MDR_MD_Msk & ((value) << SDRAMC_MDR_MD_Pos)))
 #define   SDRAMC_MDR_MD_SDRAM (0x0u << 0) /**< \brief (SDRAMC_MDR) SDRAM */
 #define   SDRAMC_MDR_MD_LPSDRAM (0x1u << 0) /**< \brief (SDRAMC_MDR) Low-power SDRAM */
 /* -------- SDRAMC_CR1 : (SDRAMC Offset: 0x28) SDRAMC Configuration Register 1 -------- */
 #define SDRAMC_CR1_NC_Pos 0
 #define SDRAMC_CR1_NC_Msk (0x3u << SDRAMC_CR1_NC_Pos) /**< \brief (SDRAMC_CR1) Number of Column Bits */
-#define SDRAMC_CR1_NC(value) ((SDRAMC_CR1_NC_Msk & ((value) << SDRAMC_CR1_NC_Pos)))
 #define   SDRAMC_CR1_NC_COL8 (0x0u << 0) /**< \brief (SDRAMC_CR1) 8 column bits */
 #define   SDRAMC_CR1_NC_COL9 (0x1u << 0) /**< \brief (SDRAMC_CR1) 9 column bits */
 #define   SDRAMC_CR1_NC_COL10 (0x2u << 0) /**< \brief (SDRAMC_CR1) 10 column bits */
 #define   SDRAMC_CR1_NC_COL11 (0x3u << 0) /**< \brief (SDRAMC_CR1) 11 column bits */
 #define SDRAMC_CR1_NR_Pos 2
 #define SDRAMC_CR1_NR_Msk (0x3u << SDRAMC_CR1_NR_Pos) /**< \brief (SDRAMC_CR1) Number of Row Bits */
-#define SDRAMC_CR1_NR(value) ((SDRAMC_CR1_NR_Msk & ((value) << SDRAMC_CR1_NR_Pos)))
 #define   SDRAMC_CR1_NR_ROW11 (0x0u << 2) /**< \brief (SDRAMC_CR1) 11 row bits */
 #define   SDRAMC_CR1_NR_ROW12 (0x1u << 2) /**< \brief (SDRAMC_CR1) 12 row bits */
 #define   SDRAMC_CR1_NR_ROW13 (0x2u << 2) /**< \brief (SDRAMC_CR1) 13 row bits */
@@ -166,7 +157,6 @@ typedef struct {
 #define   SDRAMC_CR1_NB_BANK4 (0x1u << 4) /**< \brief (SDRAMC_CR1) 4 banks */
 #define SDRAMC_CR1_CAS_Pos 5
 #define SDRAMC_CR1_CAS_Msk (0x3u << SDRAMC_CR1_CAS_Pos) /**< \brief (SDRAMC_CR1) CAS Latency */
-#define SDRAMC_CR1_CAS(value) ((SDRAMC_CR1_CAS_Msk & ((value) << SDRAMC_CR1_CAS_Pos)))
 #define   SDRAMC_CR1_CAS_LATENCY1 (0x1u << 5) /**< \brief (SDRAMC_CR1) 1 cycle CAS latency */
 #define   SDRAMC_CR1_CAS_LATENCY2 (0x2u << 5) /**< \brief (SDRAMC_CR1) 2 cycle CAS latency */
 #define   SDRAMC_CR1_CAS_LATENCY3 (0x3u << 5) /**< \brief (SDRAMC_CR1) 3 cycle CAS latency */

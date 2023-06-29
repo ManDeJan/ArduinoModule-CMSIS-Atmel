@@ -2,7 +2,7 @@
 /*                  Atmel Microcontroller Software Support                      */
 /*                       SAM Software Package License                           */
 /* ---------------------------------------------------------------------------- */
-/* Copyright (c) 2015, Atmel Corporation                                        */
+/* Copyright (c) %copyright_year%, Atmel Corporation                                        */
 /*                                                                              */
 /* All rights reserved.                                                         */
 /*                                                                              */
@@ -60,14 +60,12 @@ typedef struct {
 #define RTC_CR_UPDCAL (0x1u << 1) /**< \brief (RTC_CR) Update Request Calendar Register */
 #define RTC_CR_TIMEVSEL_Pos 8
 #define RTC_CR_TIMEVSEL_Msk (0x3u << RTC_CR_TIMEVSEL_Pos) /**< \brief (RTC_CR) Time Event Selection */
-#define RTC_CR_TIMEVSEL(value) ((RTC_CR_TIMEVSEL_Msk & ((value) << RTC_CR_TIMEVSEL_Pos)))
 #define   RTC_CR_TIMEVSEL_MINUTE (0x0u << 8) /**< \brief (RTC_CR) Minute change */
 #define   RTC_CR_TIMEVSEL_HOUR (0x1u << 8) /**< \brief (RTC_CR) Hour change */
 #define   RTC_CR_TIMEVSEL_MIDNIGHT (0x2u << 8) /**< \brief (RTC_CR) Every day at midnight */
 #define   RTC_CR_TIMEVSEL_NOON (0x3u << 8) /**< \brief (RTC_CR) Every day at noon */
 #define RTC_CR_CALEVSEL_Pos 16
 #define RTC_CR_CALEVSEL_Msk (0x3u << RTC_CR_CALEVSEL_Pos) /**< \brief (RTC_CR) Calendar Event Selection */
-#define RTC_CR_CALEVSEL(value) ((RTC_CR_CALEVSEL_Msk & ((value) << RTC_CR_CALEVSEL_Pos)))
 #define   RTC_CR_CALEVSEL_WEEK (0x0u << 16) /**< \brief (RTC_CR) Week change (every Monday at time 00:00:00) */
 #define   RTC_CR_CALEVSEL_MONTH (0x1u << 16) /**< \brief (RTC_CR) Month change (every 01 of each month at time 00:00:00) */
 #define   RTC_CR_CALEVSEL_YEAR (0x2u << 16) /**< \brief (RTC_CR) Year change (every January 1 at time 00:00:00) */
@@ -172,7 +170,6 @@ typedef struct {
 #define RTC_WPMR_WPEN (0x1u << 0) /**< \brief (RTC_WPMR) Write Protect Enable */
 #define RTC_WPMR_WPKEY_Pos 8
 #define RTC_WPMR_WPKEY_Msk (0xffffffu << RTC_WPMR_WPKEY_Pos) /**< \brief (RTC_WPMR) Write Protect KEY */
-#define RTC_WPMR_WPKEY(value) ((RTC_WPMR_WPKEY_Msk & ((value) << RTC_WPMR_WPKEY_Pos)))
 #define   RTC_WPMR_WPKEY_PASSWD (0x525443u << 8) /**< \brief (RTC_WPMR) Writing any other value in this field aborts the write operation of the WPEN bit.Always reads as 0. */
 
 /*@}*/

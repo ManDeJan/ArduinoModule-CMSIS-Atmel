@@ -2,7 +2,7 @@
 /*                  Atmel Microcontroller Software Support                      */
 /*                       SAM Software Package License                           */
 /* ---------------------------------------------------------------------------- */
-/* Copyright (c) 2015, Atmel Corporation                                        */
+/* Copyright (c) %copyright_year%, Atmel Corporation                                        */
 /*                                                                              */
 /* All rights reserved.                                                         */
 /*                                                                              */
@@ -88,7 +88,6 @@ typedef struct {
 /* -------- SMC_CFG : (SMC Offset: 0x000) SMC NFC Configuration Register -------- */
 #define SMC_CFG_PAGESIZE_Pos 0
 #define SMC_CFG_PAGESIZE_Msk (0x3u << SMC_CFG_PAGESIZE_Pos) /**< \brief (SMC_CFG) Page Size of the NAND Flash Device */
-#define SMC_CFG_PAGESIZE(value) ((SMC_CFG_PAGESIZE_Msk & ((value) << SMC_CFG_PAGESIZE_Pos)))
 #define   SMC_CFG_PAGESIZE_PS512 (0x0u << 0) /**< \brief (SMC_CFG) Main area 512 Bytes */
 #define   SMC_CFG_PAGESIZE_PS1024 (0x1u << 0) /**< \brief (SMC_CFG) Main area 1024 Bytes */
 #define   SMC_CFG_PAGESIZE_PS2048 (0x2u << 0) /**< \brief (SMC_CFG) Main area 2048 Bytes */
@@ -102,7 +101,6 @@ typedef struct {
 #define SMC_CFG_DTOCYC(value) ((SMC_CFG_DTOCYC_Msk & ((value) << SMC_CFG_DTOCYC_Pos)))
 #define SMC_CFG_DTOMUL_Pos 20
 #define SMC_CFG_DTOMUL_Msk (0x7u << SMC_CFG_DTOMUL_Pos) /**< \brief (SMC_CFG) Data Timeout Multiplier */
-#define SMC_CFG_DTOMUL(value) ((SMC_CFG_DTOMUL_Msk & ((value) << SMC_CFG_DTOMUL_Pos)))
 #define   SMC_CFG_DTOMUL_X1 (0x0u << 20) /**< \brief (SMC_CFG) DTOCYC */
 #define   SMC_CFG_DTOMUL_X16 (0x1u << 20) /**< \brief (SMC_CFG) DTOCYC x 16 */
 #define   SMC_CFG_DTOMUL_X128 (0x2u << 20) /**< \brief (SMC_CFG) DTOCYC x 128 */
@@ -173,14 +171,12 @@ typedef struct {
 /* -------- SMC_ECC_MD : (SMC Offset: 0x024) SMC ECC Mode Register -------- */
 #define SMC_ECC_MD_ECC_PAGESIZE_Pos 0
 #define SMC_ECC_MD_ECC_PAGESIZE_Msk (0x3u << SMC_ECC_MD_ECC_PAGESIZE_Pos) /**< \brief (SMC_ECC_MD) ECC Page Size */
-#define SMC_ECC_MD_ECC_PAGESIZE(value) ((SMC_ECC_MD_ECC_PAGESIZE_Msk & ((value) << SMC_ECC_MD_ECC_PAGESIZE_Pos)))
 #define   SMC_ECC_MD_ECC_PAGESIZE_PS512 (0x0u << 0) /**< \brief (SMC_ECC_MD) Main area 512 Words */
 #define   SMC_ECC_MD_ECC_PAGESIZE_PS1024 (0x1u << 0) /**< \brief (SMC_ECC_MD) Main area 1024 Words */
 #define   SMC_ECC_MD_ECC_PAGESIZE_PS2048 (0x2u << 0) /**< \brief (SMC_ECC_MD) Main area 2048 Words */
 #define   SMC_ECC_MD_ECC_PAGESIZE_PS4096 (0x3u << 0) /**< \brief (SMC_ECC_MD) Main area 4096 Words */
 #define SMC_ECC_MD_TYPCORREC_Pos 4
 #define SMC_ECC_MD_TYPCORREC_Msk (0x3u << SMC_ECC_MD_TYPCORREC_Pos) /**< \brief (SMC_ECC_MD) Type of Correction */
-#define SMC_ECC_MD_TYPCORREC(value) ((SMC_ECC_MD_TYPCORREC_Msk & ((value) << SMC_ECC_MD_TYPCORREC_Pos)))
 #define   SMC_ECC_MD_TYPCORREC_CPAGE (0x0u << 4) /**< \brief (SMC_ECC_MD) 1 bit correction for a page of 512/1024/2048/4096 Bytes  (for 8 or 16-bit NAND Flash) */
 #define   SMC_ECC_MD_TYPCORREC_C256B (0x1u << 4) /**< \brief (SMC_ECC_MD) 1 bit correction for 256 Bytes of data for a page of 512/2048/4096 bytes (for 8-bit NAND Flash only) */
 #define   SMC_ECC_MD_TYPCORREC_C512B (0x2u << 4) /**< \brief (SMC_ECC_MD) 1 bit correction for 512 Bytes of data for a page of 512/2048/4096 bytes (for 8-bit NAND Flash only) */
@@ -449,7 +445,6 @@ typedef struct {
 #define   SMC_MODE_WRITE_MODE_NWE_CTRL (0x1u << 1) /**< \brief (SMC_MODE) The Write operation is controlled by the NWE signal. */
 #define SMC_MODE_EXNW_MODE_Pos 4
 #define SMC_MODE_EXNW_MODE_Msk (0x3u << SMC_MODE_EXNW_MODE_Pos) /**< \brief (SMC_MODE) NWAIT Mode */
-#define SMC_MODE_EXNW_MODE(value) ((SMC_MODE_EXNW_MODE_Msk & ((value) << SMC_MODE_EXNW_MODE_Pos)))
 #define   SMC_MODE_EXNW_MODE_DISABLED (0x0u << 4) /**< \brief (SMC_MODE) Disabled */
 #define   SMC_MODE_EXNW_MODE_FROZEN (0x2u << 4) /**< \brief (SMC_MODE) Frozen Mode */
 #define   SMC_MODE_EXNW_MODE_READY (0x3u << 4) /**< \brief (SMC_MODE) Ready Mode */
@@ -476,7 +471,6 @@ typedef struct {
 #define SMC_WPCR_WP_EN (0x1u << 0) /**< \brief (SMC_WPCR) Write Protection Enable */
 #define SMC_WPCR_WP_KEY_Pos 8
 #define SMC_WPCR_WP_KEY_Msk (0xffffffu << SMC_WPCR_WP_KEY_Pos) /**< \brief (SMC_WPCR) Write Protection KEY Password */
-#define SMC_WPCR_WP_KEY(value) ((SMC_WPCR_WP_KEY_Msk & ((value) << SMC_WPCR_WP_KEY_Pos)))
 #define   SMC_WPCR_WP_KEY_PASSWD (0x534D43u << 8) /**< \brief (SMC_WPCR) Writing any other value in this field aborts the write operation of the WP_EN bit. Always reads as 0. */
 /* -------- SMC_WPSR : (SMC Offset: 0x1E8) Write Protection Status Register -------- */
 #define SMC_WPSR_WP_VS_Pos 0

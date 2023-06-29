@@ -2,7 +2,7 @@
 /*                  Atmel Microcontroller Software Support                      */
 /*                       SAM Software Package License                           */
 /* ---------------------------------------------------------------------------- */
-/* Copyright (c) 2015, Atmel Corporation                                        */
+/* Copyright (c) %copyright_year%, Atmel Corporation                                        */
 /*                                                                              */
 /* All rights reserved.                                                         */
 /*                                                                              */
@@ -41,7 +41,7 @@
 
 #ifdef __cplusplus
  extern "C" {
-#endif
+#endif 
 
 #if !(defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__))
 #include <stdint.h>
@@ -58,7 +58,6 @@ typedef enum IRQn
 {
 /******  Cortex-M3 Processor Exceptions Numbers ******************************/
   NonMaskableInt_IRQn   = -14, /**<  2 Non Maskable Interrupt                */
-  HardFault_IRQn        = -13, /**<  3 HardFault Interrupt                   */
   MemoryManagement_IRQn = -12, /**<  4 Cortex-M3 Memory Management Interrupt */
   BusFault_IRQn         = -11, /**<  5 Cortex-M3 Bus Fault Interrupt         */
   UsageFault_IRQn       = -10, /**<  6 Cortex-M3 Usage Fault Interrupt       */
@@ -67,7 +66,7 @@ typedef enum IRQn
   PendSV_IRQn           = -2,  /**< 14 Cortex-M3 Pend SV Interrupt           */
   SysTick_IRQn          = -1,  /**< 15 Cortex-M3 System Tick Interrupt       */
 /******  SAM3X8E specific Interrupt Numbers *********************************/
-
+  
   SUPC_IRQn            =  0, /**<  0 SAM3X8E Supply Controller (SUPC) */
   RSTC_IRQn            =  1, /**<  1 SAM3X8E Reset Controller (RSTC) */
   RTC_IRQn             =  2, /**<  2 SAM3X8E Real Time Clock (RTC) */
@@ -117,7 +116,7 @@ typedef struct _DeviceVectors
 {
   /* Stack pointer */
   void* pvStack;
-
+  
   /* Cortex-M handlers */
   void* pfnReset_Handler;
   void* pfnNMI_Handler;
@@ -239,7 +238,7 @@ void USART3_Handler     ( void );
 void WDT_Handler        ( void );
 
 /**
- * \brief Configuration of the Cortex-M3 Processor and Core Peripherals
+ * \brief Configuration of the Cortex-M3 Processor and Core Peripherals 
  */
 
 #define __CM3_REV              0x0200 /**< SAM3X8E core revision number ([15:8] revision number, [7:0] patch number) */
@@ -292,6 +291,52 @@ void WDT_Handler        ( void );
 #include "component/uotghs.h"
 #include "component/usart.h"
 #include "component/wdt.h"
+/*@}*/
+
+/* ************************************************************************** */
+/*   REGISTER ACCESS DEFINITIONS FOR SAM3X8E */
+/* ************************************************************************** */
+/** \addtogroup SAM3X8E_reg Registers Access Definitions */
+/*@{*/
+
+#include "instance/hsmci.h"
+#include "instance/ssc.h"
+#include "instance/spi0.h"
+#include "instance/tc0.h"
+#include "instance/tc1.h"
+#include "instance/tc2.h"
+#include "instance/twi0.h"
+#include "instance/twi1.h"
+#include "instance/pwm.h"
+#include "instance/usart0.h"
+#include "instance/usart1.h"
+#include "instance/usart2.h"
+#include "instance/usart3.h"
+#include "instance/uotghs.h"
+#include "instance/emac.h"
+#include "instance/can0.h"
+#include "instance/can1.h"
+#include "instance/trng.h"
+#include "instance/adc.h"
+#include "instance/dmac.h"
+#include "instance/dacc.h"
+#include "instance/smc.h"
+#include "instance/matrix.h"
+#include "instance/pmc.h"
+#include "instance/uart.h"
+#include "instance/chipid.h"
+#include "instance/efc0.h"
+#include "instance/efc1.h"
+#include "instance/pioa.h"
+#include "instance/piob.h"
+#include "instance/pioc.h"
+#include "instance/piod.h"
+#include "instance/rstc.h"
+#include "instance/supc.h"
+#include "instance/rtt.h"
+#include "instance/wdt.h"
+#include "instance/rtc.h"
+#include "instance/gpbr.h"
 /*@}*/
 
 /* ************************************************************************** */
@@ -351,6 +396,56 @@ void WDT_Handler        ( void );
 /** \addtogroup SAM3X8E_base Peripheral Base Address Definitions */
 /*@{*/
 
+#if (defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__))
+#define HSMCI      (0x40000000U) /**< \brief (HSMCI     ) Base Address */
+#define SSC        (0x40004000U) /**< \brief (SSC       ) Base Address */
+#define SPI0       (0x40008000U) /**< \brief (SPI0      ) Base Address */
+#define TC0        (0x40080000U) /**< \brief (TC0       ) Base Address */
+#define TC1        (0x40084000U) /**< \brief (TC1       ) Base Address */
+#define TC2        (0x40088000U) /**< \brief (TC2       ) Base Address */
+#define TWI0       (0x4008C000U) /**< \brief (TWI0      ) Base Address */
+#define PDC_TWI0   (0x4008C100U) /**< \brief (PDC_TWI0  ) Base Address */
+#define TWI1       (0x40090000U) /**< \brief (TWI1      ) Base Address */
+#define PDC_TWI1   (0x40090100U) /**< \brief (PDC_TWI1  ) Base Address */
+#define PWM        (0x40094000U) /**< \brief (PWM       ) Base Address */
+#define PDC_PWM    (0x40094100U) /**< \brief (PDC_PWM   ) Base Address */
+#define USART0     (0x40098000U) /**< \brief (USART0    ) Base Address */
+#define PDC_USART0 (0x40098100U) /**< \brief (PDC_USART0) Base Address */
+#define USART1     (0x4009C000U) /**< \brief (USART1    ) Base Address */
+#define PDC_USART1 (0x4009C100U) /**< \brief (PDC_USART1) Base Address */
+#define USART2     (0x400A0000U) /**< \brief (USART2    ) Base Address */
+#define PDC_USART2 (0x400A0100U) /**< \brief (PDC_USART2) Base Address */
+#define USART3     (0x400A4000U) /**< \brief (USART3    ) Base Address */
+#define PDC_USART3 (0x400A4100U) /**< \brief (PDC_USART3) Base Address */
+#define UOTGHS     (0x400AC000U) /**< \brief (UOTGHS    ) Base Address */
+#define EMAC       (0x400B0000U) /**< \brief (EMAC      ) Base Address */
+#define CAN0       (0x400B4000U) /**< \brief (CAN0      ) Base Address */
+#define CAN1       (0x400B8000U) /**< \brief (CAN1      ) Base Address */
+#define TRNG       (0x400BC000U) /**< \brief (TRNG      ) Base Address */
+#define ADC        (0x400C0000U) /**< \brief (ADC       ) Base Address */
+#define PDC_ADC    (0x400C0100U) /**< \brief (PDC_ADC   ) Base Address */
+#define DMAC       (0x400C4000U) /**< \brief (DMAC      ) Base Address */
+#define DACC       (0x400C8000U) /**< \brief (DACC      ) Base Address */
+#define PDC_DACC   (0x400C8100U) /**< \brief (PDC_DACC  ) Base Address */
+#define SMC        (0x400E0000U) /**< \brief (SMC       ) Base Address */
+#define MATRIX     (0x400E0400U) /**< \brief (MATRIX    ) Base Address */
+#define PMC        (0x400E0600U) /**< \brief (PMC       ) Base Address */
+#define UART       (0x400E0800U) /**< \brief (UART      ) Base Address */
+#define PDC_UART   (0x400E0900U) /**< \brief (PDC_UART  ) Base Address */
+#define CHIPID     (0x400E0940U) /**< \brief (CHIPID    ) Base Address */
+#define EFC0       (0x400E0A00U) /**< \brief (EFC0      ) Base Address */
+#define EFC1       (0x400E0C00U) /**< \brief (EFC1      ) Base Address */
+#define PIOA       (0x400E0E00U) /**< \brief (PIOA      ) Base Address */
+#define PIOB       (0x400E1000U) /**< \brief (PIOB      ) Base Address */
+#define PIOC       (0x400E1200U) /**< \brief (PIOC      ) Base Address */
+#define PIOD       (0x400E1400U) /**< \brief (PIOD      ) Base Address */
+#define RSTC       (0x400E1A00U) /**< \brief (RSTC      ) Base Address */
+#define SUPC       (0x400E1A10U) /**< \brief (SUPC      ) Base Address */
+#define RTT        (0x400E1A30U) /**< \brief (RTT       ) Base Address */
+#define WDT        (0x400E1A50U) /**< \brief (WDT       ) Base Address */
+#define RTC        (0x400E1A60U) /**< \brief (RTC       ) Base Address */
+#define GPBR       (0x400E1A90U) /**< \brief (GPBR      ) Base Address */
+#else
 #define HSMCI      ((Hsmci  *)0x40000000U) /**< \brief (HSMCI     ) Base Address */
 #define SSC        ((Ssc    *)0x40004000U) /**< \brief (SSC       ) Base Address */
 #define SPI0       ((Spi    *)0x40008000U) /**< \brief (SPI0      ) Base Address */
@@ -399,6 +494,7 @@ void WDT_Handler        ( void );
 #define WDT        ((Wdt    *)0x400E1A50U) /**< \brief (WDT       ) Base Address */
 #define RTC        ((Rtc    *)0x400E1A60U) /**< \brief (RTC       ) Base Address */
 #define GPBR       ((Gpbr   *)0x400E1A90U) /**< \brief (GPBR      ) Base Address */
+#endif /* (defined(__ASSEMBLY__) || defined(__IAR_SYSTEMS_ASM__)) */
 /*@}*/
 
 /* ************************************************************************** */

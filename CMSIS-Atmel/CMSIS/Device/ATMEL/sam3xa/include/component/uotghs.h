@@ -2,7 +2,7 @@
 /*                  Atmel Microcontroller Software Support                      */
 /*                       SAM Software Package License                           */
 /* ---------------------------------------------------------------------------- */
-/* Copyright (c) 2015, Atmel Corporation                                        */
+/* Copyright (c) %copyright_year%, Atmel Corporation                                        */
 /*                                                                              */
 /* All rights reserved.                                                         */
 /*                                                                              */
@@ -52,8 +52,8 @@ typedef struct {
   __IO uint32_t UOTGHS_HSTDMASTATUS;  /**< \brief (UotghsHstdma Offset: 0xC) Host DMA Channel Status Register */
 } UotghsHstdma;
 /** \brief Uotghs hardware registers */
-#define UOTGHSDEVDMA_NUMBER 6
-#define UOTGHSHSTDMA_NUMBER 6
+#define UOTGHSDEVDMA_NUMBER 7
+#define UOTGHSHSTDMA_NUMBER 7
 typedef struct {
   __IO uint32_t     UOTGHS_DEVCTRL;                     /**< \brief (Uotghs Offset: 0x0000) Device General Control Register */
   __I  uint32_t     UOTGHS_DEVISR;                      /**< \brief (Uotghs Offset: 0x0004) Device Global Interrupt Status Register */
@@ -79,8 +79,8 @@ typedef struct {
   __I  uint32_t     Reserved7[2];
   __O  uint32_t     UOTGHS_DEVEPTIDR[10];               /**< \brief (Uotghs Offset: 0x220) Device Endpoint Disable Register (n = 0) */
   __I  uint32_t     Reserved8[50];
-       UotghsDevdma UOTGHS_DEVDMA[UOTGHSDEVDMA_NUMBER]; /**< \brief (Uotghs Offset: 0x310) n = 1 .. 6 */
-  __I  uint32_t     Reserved9[36];
+       UotghsDevdma UOTGHS_DEVDMA[UOTGHSDEVDMA_NUMBER]; /**< \brief (Uotghs Offset: 0x310) n = 1 .. 7 */
+  __I  uint32_t     Reserved9[32];
   __IO uint32_t     UOTGHS_HSTCTRL;                     /**< \brief (Uotghs Offset: 0x0400) Host General Control Register */
   __I  uint32_t     UOTGHS_HSTISR;                      /**< \brief (Uotghs Offset: 0x0404) Host Global Interrupt Status Register */
   __O  uint32_t     UOTGHS_HSTICR;                      /**< \brief (Uotghs Offset: 0x0408) Host Global Interrupt Clear Register */
@@ -112,8 +112,8 @@ typedef struct {
   __I  uint32_t     Reserved18[2];
   __IO uint32_t     UOTGHS_HSTPIPERR[10];               /**< \brief (Uotghs Offset: 0x680) Host Pipe Error Register (n = 0) */
   __I  uint32_t     Reserved19[26];
-       UotghsHstdma UOTGHS_HSTDMA[UOTGHSHSTDMA_NUMBER]; /**< \brief (Uotghs Offset: 0x710) n = 1 .. 6 */
-  __I  uint32_t     Reserved20[36];
+       UotghsHstdma UOTGHS_HSTDMA[UOTGHSHSTDMA_NUMBER]; /**< \brief (Uotghs Offset: 0x710) n = 1 .. 7 */
+  __I  uint32_t     Reserved20[32];
   __IO uint32_t     UOTGHS_CTRL;                        /**< \brief (Uotghs Offset: 0x0800) General Control Register */
   __I  uint32_t     UOTGHS_SR;                          /**< \brief (Uotghs Offset: 0x0804) General Status Register */
   __O  uint32_t     UOTGHS_SCR;                         /**< \brief (Uotghs Offset: 0x0808) General Status Clear Register */
@@ -131,7 +131,6 @@ typedef struct {
 #define UOTGHS_DEVCTRL_RMWKUP (0x1u << 9) /**< \brief (UOTGHS_DEVCTRL) Remote Wake-Up */
 #define UOTGHS_DEVCTRL_SPDCONF_Pos 10
 #define UOTGHS_DEVCTRL_SPDCONF_Msk (0x3u << UOTGHS_DEVCTRL_SPDCONF_Pos) /**< \brief (UOTGHS_DEVCTRL) Mode Configuration */
-#define UOTGHS_DEVCTRL_SPDCONF(value) ((UOTGHS_DEVCTRL_SPDCONF_Msk & ((value) << UOTGHS_DEVCTRL_SPDCONF_Pos)))
 #define   UOTGHS_DEVCTRL_SPDCONF_NORMAL (0x0u << 10) /**< \brief (UOTGHS_DEVCTRL) The peripheral starts in full-speed mode and performs a high-speed reset to switch to the high-speed mode if the host is high-speed capable. */
 #define   UOTGHS_DEVCTRL_SPDCONF_LOW_POWER (0x1u << 10) /**< \brief (UOTGHS_DEVCTRL) For a better consumption, if high-speed is not needed. */
 #define   UOTGHS_DEVCTRL_SPDCONF_HIGH_SPEED (0x2u << 10) /**< \brief (UOTGHS_DEVCTRL) Forced high speed. */
@@ -288,13 +287,11 @@ typedef struct {
 #define UOTGHS_DEVEPTCFG_ALLOC (0x1u << 1) /**< \brief (UOTGHS_DEVEPTCFG[10]) Endpoint Memory Allocate */
 #define UOTGHS_DEVEPTCFG_EPBK_Pos 2
 #define UOTGHS_DEVEPTCFG_EPBK_Msk (0x3u << UOTGHS_DEVEPTCFG_EPBK_Pos) /**< \brief (UOTGHS_DEVEPTCFG[10]) Endpoint Banks */
-#define UOTGHS_DEVEPTCFG_EPBK(value) ((UOTGHS_DEVEPTCFG_EPBK_Msk & ((value) << UOTGHS_DEVEPTCFG_EPBK_Pos)))
 #define   UOTGHS_DEVEPTCFG_EPBK_1_BANK (0x0u << 2) /**< \brief (UOTGHS_DEVEPTCFG[10]) Single-bank endpoint */
 #define   UOTGHS_DEVEPTCFG_EPBK_2_BANK (0x1u << 2) /**< \brief (UOTGHS_DEVEPTCFG[10]) Double-bank endpoint */
 #define   UOTGHS_DEVEPTCFG_EPBK_3_BANK (0x2u << 2) /**< \brief (UOTGHS_DEVEPTCFG[10]) Triple-bank endpoint */
 #define UOTGHS_DEVEPTCFG_EPSIZE_Pos 4
 #define UOTGHS_DEVEPTCFG_EPSIZE_Msk (0x7u << UOTGHS_DEVEPTCFG_EPSIZE_Pos) /**< \brief (UOTGHS_DEVEPTCFG[10]) Endpoint Size */
-#define UOTGHS_DEVEPTCFG_EPSIZE(value) ((UOTGHS_DEVEPTCFG_EPSIZE_Msk & ((value) << UOTGHS_DEVEPTCFG_EPSIZE_Pos)))
 #define   UOTGHS_DEVEPTCFG_EPSIZE_8_BYTE (0x0u << 4) /**< \brief (UOTGHS_DEVEPTCFG[10]) 8 bytes */
 #define   UOTGHS_DEVEPTCFG_EPSIZE_16_BYTE (0x1u << 4) /**< \brief (UOTGHS_DEVEPTCFG[10]) 16 bytes */
 #define   UOTGHS_DEVEPTCFG_EPSIZE_32_BYTE (0x2u << 4) /**< \brief (UOTGHS_DEVEPTCFG[10]) 32 bytes */
@@ -309,14 +306,12 @@ typedef struct {
 #define UOTGHS_DEVEPTCFG_AUTOSW (0x1u << 9) /**< \brief (UOTGHS_DEVEPTCFG[10]) Automatic Switch */
 #define UOTGHS_DEVEPTCFG_EPTYPE_Pos 11
 #define UOTGHS_DEVEPTCFG_EPTYPE_Msk (0x3u << UOTGHS_DEVEPTCFG_EPTYPE_Pos) /**< \brief (UOTGHS_DEVEPTCFG[10]) Endpoint Type */
-#define UOTGHS_DEVEPTCFG_EPTYPE(value) ((UOTGHS_DEVEPTCFG_EPTYPE_Msk & ((value) << UOTGHS_DEVEPTCFG_EPTYPE_Pos)))
 #define   UOTGHS_DEVEPTCFG_EPTYPE_CTRL (0x0u << 11) /**< \brief (UOTGHS_DEVEPTCFG[10]) Control */
 #define   UOTGHS_DEVEPTCFG_EPTYPE_ISO (0x1u << 11) /**< \brief (UOTGHS_DEVEPTCFG[10]) Isochronous */
 #define   UOTGHS_DEVEPTCFG_EPTYPE_BLK (0x2u << 11) /**< \brief (UOTGHS_DEVEPTCFG[10]) Bulk */
 #define   UOTGHS_DEVEPTCFG_EPTYPE_INTRPT (0x3u << 11) /**< \brief (UOTGHS_DEVEPTCFG[10]) Interrupt */
 #define UOTGHS_DEVEPTCFG_NBTRANS_Pos 13
 #define UOTGHS_DEVEPTCFG_NBTRANS_Msk (0x3u << UOTGHS_DEVEPTCFG_NBTRANS_Pos) /**< \brief (UOTGHS_DEVEPTCFG[10]) Number of transaction per microframe for isochronous endpoint */
-#define UOTGHS_DEVEPTCFG_NBTRANS(value) ((UOTGHS_DEVEPTCFG_NBTRANS_Msk & ((value) << UOTGHS_DEVEPTCFG_NBTRANS_Pos)))
 #define   UOTGHS_DEVEPTCFG_NBTRANS_0_TRANS (0x0u << 13) /**< \brief (UOTGHS_DEVEPTCFG[10]) reserved to endpoint that does not have the high-bandwidth isochronous capability. */
 #define   UOTGHS_DEVEPTCFG_NBTRANS_1_TRANS (0x1u << 13) /**< \brief (UOTGHS_DEVEPTCFG[10]) default value: one transaction per micro-frame. */
 #define   UOTGHS_DEVEPTCFG_NBTRANS_2_TRANS (0x2u << 13) /**< \brief (UOTGHS_DEVEPTCFG[10]) 2 transactions per micro-frame. This endpoint should be configured as double-bank. */
@@ -486,7 +481,6 @@ typedef struct {
 #define UOTGHS_HSTCTRL_RESUME (0x1u << 10) /**< \brief (UOTGHS_HSTCTRL) Send USB Resume */
 #define UOTGHS_HSTCTRL_SPDCONF_Pos 12
 #define UOTGHS_HSTCTRL_SPDCONF_Msk (0x3u << UOTGHS_HSTCTRL_SPDCONF_Pos) /**< \brief (UOTGHS_HSTCTRL) Mode Configuration */
-#define UOTGHS_HSTCTRL_SPDCONF(value) ((UOTGHS_HSTCTRL_SPDCONF_Msk & ((value) << UOTGHS_HSTCTRL_SPDCONF_Pos)))
 #define   UOTGHS_HSTCTRL_SPDCONF_NORMAL (0x0u << 12) /**< \brief (UOTGHS_HSTCTRL) The host starts in full-speed mode and performs a high-speed reset to switch to the high-speed mode if the downstream peripheral is high-speed capable. */
 #define   UOTGHS_HSTCTRL_SPDCONF_LOW_POWER (0x1u << 12) /**< \brief (UOTGHS_HSTCTRL) For a better consumption, if high-speed is not needed. */
 #define   UOTGHS_HSTCTRL_SPDCONF_HIGH_SPEED (0x2u << 12) /**< \brief (UOTGHS_HSTCTRL) Forced high speed. */
@@ -675,13 +669,11 @@ typedef struct {
 #define UOTGHS_HSTPIPCFG_ALLOC (0x1u << 1) /**< \brief (UOTGHS_HSTPIPCFG[10]) Pipe Memory Allocate */
 #define UOTGHS_HSTPIPCFG_PBK_Pos 2
 #define UOTGHS_HSTPIPCFG_PBK_Msk (0x3u << UOTGHS_HSTPIPCFG_PBK_Pos) /**< \brief (UOTGHS_HSTPIPCFG[10]) Pipe Banks */
-#define UOTGHS_HSTPIPCFG_PBK(value) ((UOTGHS_HSTPIPCFG_PBK_Msk & ((value) << UOTGHS_HSTPIPCFG_PBK_Pos)))
 #define   UOTGHS_HSTPIPCFG_PBK_1_BANK (0x0u << 2) /**< \brief (UOTGHS_HSTPIPCFG[10]) Single-bank pipe */
 #define   UOTGHS_HSTPIPCFG_PBK_2_BANK (0x1u << 2) /**< \brief (UOTGHS_HSTPIPCFG[10]) Double-bank pipe */
 #define   UOTGHS_HSTPIPCFG_PBK_3_BANK (0x2u << 2) /**< \brief (UOTGHS_HSTPIPCFG[10]) Triple-bank pipe */
 #define UOTGHS_HSTPIPCFG_PSIZE_Pos 4
 #define UOTGHS_HSTPIPCFG_PSIZE_Msk (0x7u << UOTGHS_HSTPIPCFG_PSIZE_Pos) /**< \brief (UOTGHS_HSTPIPCFG[10]) Pipe Size */
-#define UOTGHS_HSTPIPCFG_PSIZE(value) ((UOTGHS_HSTPIPCFG_PSIZE_Msk & ((value) << UOTGHS_HSTPIPCFG_PSIZE_Pos)))
 #define   UOTGHS_HSTPIPCFG_PSIZE_8_BYTE (0x0u << 4) /**< \brief (UOTGHS_HSTPIPCFG[10]) 8 bytes */
 #define   UOTGHS_HSTPIPCFG_PSIZE_16_BYTE (0x1u << 4) /**< \brief (UOTGHS_HSTPIPCFG[10]) 16 bytes */
 #define   UOTGHS_HSTPIPCFG_PSIZE_32_BYTE (0x2u << 4) /**< \brief (UOTGHS_HSTPIPCFG[10]) 32 bytes */
@@ -692,14 +684,12 @@ typedef struct {
 #define   UOTGHS_HSTPIPCFG_PSIZE_1024_BYTE (0x7u << 4) /**< \brief (UOTGHS_HSTPIPCFG[10]) 1024 bytes */
 #define UOTGHS_HSTPIPCFG_PTOKEN_Pos 8
 #define UOTGHS_HSTPIPCFG_PTOKEN_Msk (0x3u << UOTGHS_HSTPIPCFG_PTOKEN_Pos) /**< \brief (UOTGHS_HSTPIPCFG[10]) Pipe Token */
-#define UOTGHS_HSTPIPCFG_PTOKEN(value) ((UOTGHS_HSTPIPCFG_PTOKEN_Msk & ((value) << UOTGHS_HSTPIPCFG_PTOKEN_Pos)))
 #define   UOTGHS_HSTPIPCFG_PTOKEN_SETUP (0x0u << 8) /**< \brief (UOTGHS_HSTPIPCFG[10]) SETUP */
 #define   UOTGHS_HSTPIPCFG_PTOKEN_IN (0x1u << 8) /**< \brief (UOTGHS_HSTPIPCFG[10]) IN */
 #define   UOTGHS_HSTPIPCFG_PTOKEN_OUT (0x2u << 8) /**< \brief (UOTGHS_HSTPIPCFG[10]) OUT */
 #define UOTGHS_HSTPIPCFG_AUTOSW (0x1u << 10) /**< \brief (UOTGHS_HSTPIPCFG[10]) Automatic Switch */
 #define UOTGHS_HSTPIPCFG_PTYPE_Pos 12
 #define UOTGHS_HSTPIPCFG_PTYPE_Msk (0x3u << UOTGHS_HSTPIPCFG_PTYPE_Pos) /**< \brief (UOTGHS_HSTPIPCFG[10]) Pipe Type */
-#define UOTGHS_HSTPIPCFG_PTYPE(value) ((UOTGHS_HSTPIPCFG_PTYPE_Msk & ((value) << UOTGHS_HSTPIPCFG_PTYPE_Pos)))
 #define   UOTGHS_HSTPIPCFG_PTYPE_CTRL (0x0u << 12) /**< \brief (UOTGHS_HSTPIPCFG[10]) Control */
 #define   UOTGHS_HSTPIPCFG_PTYPE_ISO (0x1u << 12) /**< \brief (UOTGHS_HSTPIPCFG[10]) Isochronous */
 #define   UOTGHS_HSTPIPCFG_PTYPE_BLK (0x2u << 12) /**< \brief (UOTGHS_HSTPIPCFG[10]) Bulk */

@@ -2,7 +2,7 @@
 /*                  Atmel Microcontroller Software Support                      */
 /*                       SAM Software Package License                           */
 /* ---------------------------------------------------------------------------- */
-/* Copyright (c) 2015, Atmel Corporation                                        */
+/* Copyright (c) %copyright_year%, Atmel Corporation                                        */
 /*                                                                              */
 /* All rights reserved.                                                         */
 /*                                                                              */
@@ -58,7 +58,6 @@ typedef enum IRQn
 {
 /******  Cortex-M3 Processor Exceptions Numbers ******************************/
   NonMaskableInt_IRQn   = -14, /**<  2 Non Maskable Interrupt                */
-  HardFault_IRQn        = -13, /**<  3 HardFault Interrupt                   */
   MemoryManagement_IRQn = -12, /**<  4 Cortex-M3 Memory Management Interrupt */
   BusFault_IRQn         = -11, /**<  5 Cortex-M3 Bus Fault Interrupt         */
   UsageFault_IRQn       = -10, /**<  6 Cortex-M3 Usage Fault Interrupt       */
